@@ -8,28 +8,28 @@ pygame.mixer.init()
 SCREEN = pygame.display.set_mode((1280, 720))
 pygame.display.set_caption("Menu")
 
-pygame.mixer.music.load("assets/nhac_nen.mp3")
+pygame.mixer.music.load("Menu/assets/nhac_nen.mp3")
 pygame.mixer.music.set_volume(0.5)
 pygame.mixer.music.play(-1)
 
-BG = pygame.image.load("assets/Background.png")
+BG = pygame.image.load("Menu/assets/Background.png")
 BG = pygame.transform.scale(BG, (1280, 720))
 
 def get_font(size):
-    return pygame.font.Font("assets/font.ttf", size)
+    return pygame.font.Font("Menu/assets/font.ttf", size)
 
 def play():
     while True:
         PLAY_MOUSE_POS = pygame.mouse.get_pos()
         SCREEN.fill("gray")
 
-        EASY_BUTTON = Button(image=pygame.image.load("assets/Play Rect.png"), pos=(640, 100), 
+        EASY_BUTTON = Button(image=pygame.image.load("Menu/assets/Play Rect.png"), pos=(640, 100), 
                             text_input="EASY", font=get_font(75), base_color="#d7fcd4", hovering_color="White")
-        MEDIUM_BUTTON = Button(image=pygame.image.load("assets/Options Rect.png"), pos=(640, 250), 
+        MEDIUM_BUTTON = Button(image=pygame.image.load("Menu/assets/Options Rect.png"), pos=(640, 250), 
                             text_input="MEDIUM", font=get_font(75), base_color="#d7fcd4", hovering_color="White")
-        HARD_BUTTON = Button(image=pygame.image.load("assets/Quit Rect.png"), pos=(640, 400), 
+        HARD_BUTTON = Button(image=pygame.image.load("Menu/assets/Quit Rect.png"), pos=(640, 400), 
                             text_input="HARD", font=get_font(75), base_color="#d7fcd4", hovering_color="White")
-        BACK_BUTTON = Button(image=pygame.image.load("assets/Quit Rect.png"), pos=(640, 550), 
+        BACK_BUTTON = Button(image=pygame.image.load("Menu/assets/Quit Rect.png"), pos=(640, 550), 
                             text_input="BACK", font=get_font(75), base_color="#d7fcd4", hovering_color="White")
 
         for button in [EASY_BUTTON, MEDIUM_BUTTON, HARD_BUTTON, BACK_BUTTON]:
@@ -64,7 +64,7 @@ def options():
         OPTIONS_RECT = OPTIONS_TEXT.get_rect(center=(640, 100))
         SCREEN.blit(OPTIONS_TEXT, OPTIONS_RECT)
 
-        BACK_BUTTON = Button(image=pygame.image.load("assets/Quit Rect.png"), pos=(640, 550), 
+        BACK_BUTTON = Button(image=pygame.image.load("Menu/assets/Quit Rect.png"), pos=(640, 550), 
                              text_input="BACK", font=get_font(75), base_color="black", hovering_color="White")
         
         BACK_BUTTON.changeColor(OPTIONS_MOUSE_POS)
@@ -96,11 +96,11 @@ def main_menu():
         MENU_TEXT = get_font(100).render("MAIN MENU", True, "red")
         MENU_RECT = MENU_TEXT.get_rect(center=(640, 100))
 
-        PLAY_BUTTON = Button(image=pygame.image.load("assets/Play Rect.png"), pos=(640, 250), 
+        PLAY_BUTTON = Button(image=pygame.image.load("Menu/assets/Play Rect.png"), pos=(640, 250), 
                             text_input="PLAY", font=get_font(75), base_color="#d7fcd4", hovering_color="White")
-        OPTIONS_BUTTON = Button(image=pygame.image.load("assets/Options Rect.png"), pos=(640, 400), 
+        OPTIONS_BUTTON = Button(image=pygame.image.load("Menu/assets/Options Rect.png"), pos=(640, 400), 
                             text_input="OPTIONS", font=get_font(75), base_color="#d7fcd4", hovering_color="White")
-        QUIT_BUTTON = Button(image=pygame.image.load("assets/Quit Rect.png"), pos=(640, 550), 
+        QUIT_BUTTON = Button(image=pygame.image.load("Menu/assets/Quit Rect.png"), pos=(640, 550), 
                             text_input="QUIT", font=get_font(75), base_color="#d7fcd4", hovering_color="White")
 
         SCREEN.blit(MENU_TEXT, MENU_RECT)
