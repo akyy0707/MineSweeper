@@ -22,9 +22,9 @@ class Game():
         
     def draw(self):
         topLeft = (0, 0)
-        for row in range(self.board.getSize()[0]):
-            for col in range(self.board.getSize()[1]):
-                image = self.images["empty-block"]
+        for row in self.board.getBoard():
+            for piece in row:
+                image = self.images[self.getImageString(piece)]
                 self.screen.blit(image, topLeft)
                 topLeft = (topLeft[0] + self.pieceSize[0], topLeft[1])
             topLeft = (0, topLeft[1] + self.pieceSize[1])
@@ -37,3 +37,15 @@ class Game():
             image = pygame.image.load(os.path.join("DoMin/images/", fileName))
             image = pygame.transform.scale(image, self.pieceSize)
             self.images[fileName.split(".")[0]] = image
+    
+    def getImageString(self, piece):
+        if piece.hasBomb:
+            return 'bomb-at-clicked-block'
+        elif piece.getNumAround != 0:
+            return str(piece.getNumAround())
+        # if (self.board.getLost()):
+        #     if (piece.getHasBomb()):
+        #         return 'unclicked-bomb'
+        #     return 'wrong-flag' if piece.getFlagged() else 'empty-block'
+        # return 'flag' if piece.getFlagged() else 'empty-block'
+        return 'empty-block'
